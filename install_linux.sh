@@ -8,7 +8,7 @@
 
 GH_RAW_URL=https://raw.githubusercontent.com
 # in the future it's well be $GH_RAW_URL/secman-team/secman/HEAD/releases/secman-linux
-smUrl=$GH_RAW_URL/secman-team/secman/HEAD/release/linux/secman
+smUrl=https://github.com/secman-team/secman/releases/download/latest/secman-linux
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 vrb=$GH_RAW_URL/secman-team/secman/HEAD/tools/v_checker.rb
