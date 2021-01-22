@@ -6,10 +6,11 @@
 # 3- check if brew command // //
 # 4- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
-GH_RAW_URL=https://raw.githubusercontent.com/abdfnx
-smUrl=$GH_RAW_URL/secman/HEAD/release/linux/secman
-sm_unUrl=$GH_RAW_URL/secman/HEAD/packages/secman-un
-sm_syUrl=$GH_RAW_URL/secman/HEAD/api/sync/secman-sync
+GH_RAW_URL=https://raw.githubusercontent.com
+# in the future it's well be $GH_RAW_URL/secman-team/secman/HEAD/releases/secman-linux
+smUrl=$GH_RAW_URL/secman-team/secman/HEAD/release/linux/secman
+sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
+sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 vrb=$GH_RAW_URL/secman/HEAD/tools/v_checker.rb
 smLocLD=/usr/local/bin
 
@@ -18,13 +19,13 @@ successInstall() {
 }
 
 installBrew() {
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/Homebrew/install/HEAD/install.sh)"
 }
 
 installSecman_Tools() {
     # install deps
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup)"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
+    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
 
     # secman
     sudo wget -P $smLocLD $smUrl
