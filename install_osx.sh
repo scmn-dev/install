@@ -6,6 +6,7 @@
 # 3- check if brew command // /////
 
 GH_RAW_URL=https://raw.githubusercontent.com
+# in the future it's well be $GH_RAW_URL/secman-team/secman/HEAD/releases/secman-osx
 smUrl=$GH_RAW_URL/secman-team/secman/HEAD/release/linux/secman
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
