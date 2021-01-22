@@ -10,7 +10,6 @@ GH_RAW_URL=https://raw.githubusercontent.com
 smUrl=$GH_RAW_URL/secman-team/secman/HEAD/release/linux/secman
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
-vrb=$GH_RAW_URL/secman-team/secman/HEAD/tools/v_checker.rb
 smLocLD=/usr/local/bin
 
 successInstall() {
@@ -40,8 +39,6 @@ installSecman_Tools() {
     sudo wget -P $smLocLD $sm_syUrl
 
     sudo chmod 755 $smLocLD/secman-sync
-
-    ${vrb}
 }
 
 checkWget() {
