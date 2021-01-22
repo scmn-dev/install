@@ -10,6 +10,7 @@ GH_RAW_URL=https://raw.githubusercontent.com
 smUrl=$GH_RAW_URL/secman-team/secman/HEAD/release/linux/secman
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
+vrb=$GH_RAW_URL/secman-team/secman/HEAD/tools/v_checker.rb
 smLocLD=/usr/local/bin
 
 successInstall() {
@@ -20,7 +21,7 @@ installBrew() {
     /bin/bash -c "$(curl -fsSL $GH_RAW_URL/Homebrew/install/HEAD/install.sh)"
 }
 
-installSecman_&_Tools() {
+installSecman_Tools() {
     # install deps
     /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
     /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
@@ -39,16 +40,18 @@ installSecman_&_Tools() {
     sudo wget -P $smLocLD $sm_syUrl
 
     sudo chmod 755 $smLocLD/secman-sync
+
+    ${vrb}
 }
 
 checkWget() {
     if [ -x "$(command -v wget)" ]; then
-        installSecman_&_Tools
+        installSecman_Tools
     else
         brew install wget
 
         if [ -x "$(command -v wget)" ]; then
-            installSecman_&_Tools
+            installSecman_Tools
         fi
     fi
 }
