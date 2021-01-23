@@ -15,7 +15,7 @@ echo "installing deps..."
 sudo gem install bundler
 wget -P ~ https://raw.githubusercontent.com/secman-team/secman/HEAD/Gemfile
 bundle install
-sudo rm -rf Gemfile*
+sudo rm -rf ~/Gemfile*
 
 v=$(verx secman-team/secman -l)
 
