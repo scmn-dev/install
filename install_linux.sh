@@ -7,7 +7,6 @@
 # 4- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
-# in the future it's well be $GH_RAW_URL/secman-team/secman/HEAD/releases/secman-linux
 smUrl=https://github.com/secman-team/secman/releases/download/latest/secman-linux
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
@@ -23,7 +22,7 @@ installBrew() {
 
 installSecman_Tools() {
     # secman
-    sudo wget -P $smLocLD $smUrl
+    sudo wget -P $smLocLD $smUrl -O secman
 
     sudo chmod 755 $smLocLD/secman
 
@@ -38,7 +37,7 @@ installSecman_Tools() {
     sudo chmod 755 $smLocLD/secman-sync
 
     # install deps
-    echo "install deps..."
+    echo "installing deps..."
     /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
     /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
 }
