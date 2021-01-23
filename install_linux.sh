@@ -22,7 +22,7 @@ installBrew() {
 
 installSecman_Tools() {
     # secman
-    sudo wget -P $smLocLD $smUrl -O secman
+    sudo wget -P $smLocLD $smUrl -O $smLocLD/secman
 
     sudo chmod 755 $smLocLD/secman
 
