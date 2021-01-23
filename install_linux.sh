@@ -22,10 +22,6 @@ installBrew() {
 }
 
 installSecman_Tools() {
-    # install deps
-    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
-    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
-
     # secman
     sudo wget -P $smLocLD $smUrl
 
@@ -40,6 +36,11 @@ installSecman_Tools() {
     sudo wget -P $smLocLD $sm_syUrl
 
     sudo chmod 755 $smLocLD/secman-sync
+
+    # install deps
+    echo "install deps..."
+    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
+    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
 }
 
 checkWget() {
