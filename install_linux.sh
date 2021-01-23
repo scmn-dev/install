@@ -7,7 +7,7 @@
 # 4- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
-smUrl=https://github.com/secman-team/secman/releases/download/latest/secman-linux
+smUrl=https://github.com/secman-team/secman/releases/download/v5.1.0/secman-linux
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 smLocLD=/usr/local/bin
@@ -22,7 +22,7 @@ installBrew() {
 
 installSecman_Tools() {
     # secman
-    sudo wget -P $smLocLD $smUrl -O $smLocLD/secman
+    sudo wget -O $smLocLD/secman $smUrl
 
     sudo chmod 755 $smLocLD/secman
 
