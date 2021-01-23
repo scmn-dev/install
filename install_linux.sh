@@ -7,7 +7,15 @@
 # 4- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
-smUrl=https://github.com/secman-team/secman/releases/download/v5.1.0/secman-linux
+
+# install deps
+echo "installing deps..."
+/bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
+/bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
+
+v=$(verx secman-team/secman -l)
+
+smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-linux
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 smLocLD=/usr/local/bin
@@ -35,11 +43,6 @@ installSecman_Tools() {
     sudo wget -P $smLocLD $sm_syUrl
 
     sudo chmod 755 $smLocLD/secman-sync
-
-    # install deps
-    echo "installing deps..."
-    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
-    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
 }
 
 checkWget() {

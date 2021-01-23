@@ -6,8 +6,15 @@
 # 3- check if brew command // /////
 
 GH_RAW_URL=https://raw.githubusercontent.com
-# in the future it's well be $GH_RAW_URL/secman-team/secman/HEAD/releases/secman-osx
-smUrl=$GH_RAW_URL/secman-team/secman/HEAD/release/linux/secman
+
+# install deps
+echo "installing deps..."
+/bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
+/bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
+
+v=$(verx secman-team/secman -l)
+
+smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-osx
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 smLocLD=/usr/local/bin
@@ -20,13 +27,9 @@ installBrew() {
     /bin/bash -c "$(curl -fsSL $GH_RAW_URL/Homebrew/install/HEAD/install.sh)"
 }
 
-installSecman_Tools() {
-    # install deps
-    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/secman-team/corgit/main/setup)"
-    /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
-    
+installSecman_Tools() {    
     # secman
-    sudo wget -P $smLocLD $smUrl
+    sudo wget -O $smLocLD $smUrl
 
     sudo chmod 755 $smLocLD/secman
 
