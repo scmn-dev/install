@@ -13,7 +13,7 @@ echo "installing deps..."
 /bin/bash -c "$(curl -fsSL $GH_RAW_URL/abdfnx/verx/HEAD/install.sh)"
 sudo gem install bundler
 cd ~
-wget https://raw.githubusercontent.com/secman-team/secman/HEAD/Gemfile
+wget $GH_RAW_URL/secman-team/secman/HEAD/Gemfile
 bundle install
 sudo rm -rf Gemfile*
 
