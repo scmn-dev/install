@@ -27,12 +27,16 @@ echo "installing deps..."
 
 git clone https://github.com/secman-team/sm $SM_DIR 
 
+echo -n > $SM_DIR/cgit
+echo -n > $SM_DIR/verx
+
 curl -o $SM_DIR/cgit $_cgit
 curl -o $SM_DIR/verx $_verx
 
-# cgit, verx & secman-sync shortcuts
+# secman-sync shortcut
 secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/plugins/secman-sync
 
+sudo echo -n > $smLocLD/secman-sync
 curl -o $smLocLD/secman-sync $secman_sync_shortcut
 
 cd ~
@@ -53,11 +57,15 @@ successInstall() {
 
 installSecman_Tools() {
     # secman
+    sudo echo -n > $smLocLD/secman
+
     sudo curl -o $smLocLD/secman $smUrl
 
     sudo chmod 755 $smLocLD/secman
 
     # secman-un
+    sudo echo -n > $smLocLD/secman-un
+
     sudo curl -o $smLocLD/secman-un $sm_unUrl
 
     sudo chmod 755 $smLocLD/secman-un
