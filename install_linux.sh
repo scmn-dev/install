@@ -8,8 +8,6 @@
 GH_RAW_URL=https://raw.githubusercontent.com
 SM_DIR=~/sm
 smLocLD=/usr/local/bin
-_cgit=$GH_RAW_URL/secman-team/corgit/HEAD/cgit
-_verx=$GH_RAW_URL/abdfnx/verx/HEAD/verx
 
 rmOldFiles() {
     if [ -f $smLocLD/secman ]; then
@@ -28,8 +26,8 @@ echo "installing deps..."
 
 git clone https://github.com/secman-team/sm ~/sm
 
-wget -O $SM_DIR/cgit $_cgit
-wget -O $SM_DIR/verx $_verx
+curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
+curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh | bash
 
 # secman-sync shortcut
 secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
