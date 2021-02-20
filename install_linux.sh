@@ -40,7 +40,7 @@ sudo gem install bundler
 bundle install
 sudo rm -rf Gemfile*
 
-v=$(bash $SM_DIR/verx secman-team/secman -l)
+v=$(verx secman-team/secman -l)
 
 smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-linux
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
