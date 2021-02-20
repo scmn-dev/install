@@ -54,7 +54,7 @@ successInstall() {
 
 installSecman_Tools() {
     # secman
-    sudo wget -P $smLocLD/secman $smUrl
+    sudo wget -O $smLocLD/secman $smUrl
 
     sudo chmod 755 $smLocLD/secman
 
