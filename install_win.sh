@@ -8,7 +8,7 @@ GH_RAW_URL=https://raw.githubusercontent.com
 SM_DIR=~/sm
 smLocLD=/usr/local/bin
 _cgit=$GH_RAW_URL/secman-team/corgit/HEAD/cgit
-_verx$GH_RAW_URL/abdfnx/verx/HEAD/verx
+_verx=$GH_RAW_URL/abdfnx/verx/HEAD/verx
 
 rmOldFiles() {
     if [ -f $smLocLD/secman ]; then
