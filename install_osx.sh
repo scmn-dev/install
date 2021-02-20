@@ -63,6 +63,7 @@ installSecman_Tools() {
     # secman-sync
     sudo wget -P $SM_DIR $sm_syUrl
     sudo chmod 755 $SM_DIR/secman-sync
+    sudo chmod 755 $smLocLD/secman-sync
 }
 
 mainCheck() {
