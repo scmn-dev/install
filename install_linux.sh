@@ -28,8 +28,8 @@ echo "installing deps..."
 
 git clone https://github.com/secman-team/sm ~/sm
 
-wget -P $SM_DIR/cgit $_cgit
-wget -P $SM_DIR/verx $_verx
+wget -P $SM_DIR $_cgit
+wget -P $SM_DIR $_verx
 
 # secman-sync shortcut
 secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
