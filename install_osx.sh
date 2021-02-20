@@ -3,7 +3,6 @@
 # Installation
 # 1- rm old files
 # 2- check if curl command is exist
-# 3- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
 SM_DIR=~/sm
@@ -59,7 +58,7 @@ installSecman_Tools() {
     sudo chmod 755 $smLocLD/secman
 
     # secman-un
-    sudo wget -P $smLocLD/secman-un $sm_unUrl
+    sudo wget -P $smLocLD $sm_unUrl
 
     sudo chmod 755 $smLocLD/secman-un
 

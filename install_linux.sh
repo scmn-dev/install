@@ -59,7 +59,7 @@ installSecman_Tools() {
     sudo chmod 755 $smLocLD/secman
 
     # secman-un
-    sudo wget -P $smLocLD/secman-un $sm_unUrl
+    sudo wget -P $smLocLD $sm_unUrl
 
     sudo chmod 755 $smLocLD/secman-un
 
