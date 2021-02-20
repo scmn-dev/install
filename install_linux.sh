@@ -34,7 +34,7 @@ wget -O $SM_DIR/verx $_verx
 # secman-sync shortcut
 secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
 
-wget -P $smLocLD $secman_sync_shortcut
+sudo wget -P $smLocLD $secman_sync_shortcut
 
 cd ~
 wget $GH_RAW_URL/secman-team/secman/HEAD/Gemfile
