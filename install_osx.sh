@@ -3,6 +3,7 @@
 # Installation
 # 1- rm old files
 # 2- check if curl command is exist
+# 3- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
 SM_DIR=~/sm
@@ -17,7 +18,7 @@ rmOldFiles() {
         sudo rm -rf $smLocLD/cgit*
 
         if [ -d $SM_DIR ]; then
-            rm -rf $SM_DIR
+            rm -rf ~/sm
         fi
     fi
 }
@@ -25,19 +26,19 @@ rmOldFiles() {
 # install deps
 echo "installing deps..."
 
-git clone https://github.com/secman-team/sm $SM_DIR 
+git clone https://github.com/secman-team/sm ~/sm
 
 wget -P $SM_DIR/cgit $_cgit
 wget -P $SM_DIR/verx $_verx
 
 # secman-sync shortcut
-secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/plugins/secman-sync
+secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
 
-sudo wget -P $smLocLD/secman-sync $secman_sync_shortcut
+wget -P $smLocLD/secman-sync $secman_sync_shortcut
 
 cd ~
+wget $GH_RAW_URL/secman-team/secman/HEAD/Gemfile
 sudo gem install bundler
-curl $GH_RAW_URL/secman-team/secman/HEAD/Gemfile
 bundle install
 sudo rm -rf Gemfile*
 
@@ -53,26 +54,26 @@ successInstall() {
 
 installSecman_Tools() {
     # secman
-    sudo touch $smLocLD/secman
-
     sudo wget -P $smLocLD/secman $smUrl
 
     sudo chmod 755 $smLocLD/secman
 
     # secman-un
-    sudo touch $smLocLD/secman-un
-
     sudo wget -P $smLocLD/secman-un $sm_unUrl
 
     sudo chmod 755 $smLocLD/secman-un
 
     # secman-sync
-    sudo wget -P $SM_DIR/secman-sync $sm_syUrl
+    sudo wget -P $SM_DIR $sm_syUrl
 }
 
 mainCheck() {
-    xcode-select --install
-    installSecman_Tools
+    if [ -x "$(command -v git)" ]; then
+        installSecman_Tools
+    else
+        xcode-select --install
+        installSecman_Tools
+    fi
 }
 
 if [ -x "$(command -v curl)" ]; then

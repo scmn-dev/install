@@ -32,9 +32,8 @@ wget -P $SM_DIR/cgit $_cgit
 wget -P $SM_DIR/verx $_verx
 
 # secman-sync shortcut
-secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/plugins/secman-sync
+secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
 
-sudo touch $smLocLD/secman-sync
 wget -P $smLocLD/secman-sync $secman_sync_shortcut
 
 cd ~
@@ -43,12 +42,11 @@ sudo gem install bundler
 bundle install
 sudo rm -rf Gemfile*
 
-v=$(verx secman-team/secman -l)
+v=$(bash $SM_DIR/verx secman-team/secman -l)
 
 smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-linux
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
-
 
 successInstall() {
     echo "yesss, secman was installed successfully 😎, you can type secman --help"
@@ -66,7 +64,7 @@ installSecman_Tools() {
     sudo chmod 755 $smLocLD/secman-un
 
     # secman-sync
-    sudo wget -P $SM_DIR/secman-sync $sm_syUrl
+    sudo wget -P $SM_DIR $sm_syUrl
 }
 
 mainCheck() {
