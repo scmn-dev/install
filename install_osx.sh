@@ -23,15 +23,8 @@ rmOldFiles() {
 # install deps
 echo "installing deps..."
 
-git clone https://github.com/secman-team/sm ~/sm
-
 curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
 curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh | bash
-
-# secman-sync shortcut
-secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
-
-sudo wget -P $smLocLD $secman_sync_shortcut
 
 cd ~
 wget $GH_RAW_URL/secman-team/secman/HEAD/Gemfile
@@ -40,6 +33,12 @@ bundle install
 sudo rm -rf Gemfile*
 
 v=$(verx secman-team/secman -l)
+
+git clone https://github.com/secman-team/sm sm
+
+# secman-sync shortcut
+secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
+sudo wget -P $smLocLD $secman_sync_shortcut
 
 smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-osx
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
