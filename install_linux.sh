@@ -6,7 +6,7 @@
 # 3- some Linux platforms don't have git installed, so it's well checking is git command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
-SM_DIR=~/sm
+SM_DIR=/home/sm
 smLocLD=/usr/local/bin
 
 rmOldFiles() {
@@ -16,7 +16,7 @@ rmOldFiles() {
         sudo rm -rf $smLocLD/cgit*
 
         if [ -d $SM_DIR ]; then
-            rm -rf /home/sm
+            sudo rm -rf $SM_DIR
         fi
     fi
 }
@@ -35,7 +35,8 @@ sudo rm -rf Gemfile*
 
 v=$(verx secman-team/secman -l)
 
-git clone https://github.com/secman-team/sm /home/sm
+git clone https://github.com/secman-team/sm ~/sm
+sudo mv ~/sm /home
 
 # secman-sync shortcut
 secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync

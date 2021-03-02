@@ -15,7 +15,7 @@ rmOldFiles() {
         sudo rm -rf $smLocLD/cgit*
 
         if [ -d $SM_DIR ]; then
-            rm -rf $SM_DIR
+            sudo rm -rf $SM_DIR
         fi
     fi
 }
@@ -34,7 +34,8 @@ sudo rm -rf Gemfile*
 
 v=$(verx secman-team/secman -l)
 
-git clone https://github.com/secman-team/sm $SM_DIR
+git clone https://github.com/secman-team/sm ~/sm
+sudo mv ~/sm /home
 
 # secman-sync shortcut
 secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
