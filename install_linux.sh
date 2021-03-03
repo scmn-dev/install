@@ -68,12 +68,10 @@ installSecman_Tools() {
 }
 
 mainCheck() {
-    if [ -x "$(command -v sudo)" ]; then
-        sudo apt install git
+    if [ -x "$(command -v git)" ]; then
         installSecman_Tools
     else
-        apt install git
-        installSecman_Tools
+        echo "You Should Install Git"
     fi
 }
 
