@@ -10,72 +10,75 @@ smLocLD=/usr/bin
 
 rmOldFiles() {
     if [ -f $smLocLD/secman ]; then
-        sudo rm -rf $smLocLD/secman*
-        sudo rm -rf $smLocLD/verx*
-        sudo rm -rf $smLocLD/cgit*
+        rm -rf $smLocLD/secman*
+        rm -rf $smLocLD/verx*
+        rm -rf $smLocLD/cgit*
 
         if [ -d $SM_DIR ]; then
-            sudo rm -rf $SM_DIR
+            rm -rf $SM_DIR
         fi
     fi
 }
 
-# install deps
-echo "installing deps..."
+if [ -x "$(command -v wget)" ]; then
+    # install deps
+    echo "installing deps..."
 
-curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
-curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
+    curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh | bash
 
-gem install colorize
-gem install optparse
+    gem install colorize
+    gem install optparse
 
-v=$(verx secman-team/secman -l)
+    v=$(verx secman-team/secman -l)
 
-git clone https://github.com/secman-team/sm $SM_DIR
+    git clone https://github.com/secman-team/sm $SM_DIR
 
-smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-win-git
-sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un-win
-sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
+    smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-win-git
+    sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un-win
+    sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 
-successInstall() {
-    echo "yesss, secman was installed successfully 😎, you can type secman --help"
-}
+    successInstall() {
+        echo "yesss, secman was installed successfully 😎, you can type secman --help"
+    }
 
-installSecman_Tools() {
-    # secman
-    sudo wget -O $smLocLD/secman $smUrl
+    installSecman_Tools() {
+        # secman
+        wget -O $smLocLD/secman $smUrl
 
-    sudo chmod 755 $smLocLD/secman
+        # secman-un
+        wget -P $smLocLD $sm_unUrl
 
-    # secman-un
-    sudo wget -P $smLocLD $sm_unUrl
+        # secman-sync
+        wget -P $smLocLD $sm_syUrl
+    }
 
-    sudo chmod 755 $smLocLD/secman-un
+    mainCheck() {
+        if [ -x "$(command -v git)" ]; then
+            if [ -x "$(command -v wget)" ]; then
+                installSecman_Tools
+            else
+                echo "You must install wget"
+            fi
+        else
+            echo "You should install git"
+        fi
+    }
 
-    # secman-sync
-    sudo wget -P $smLocLD $sm_syUrl
-    sudo chmod 755 $smLocLD/secman-sync
-}
+    if [ -x "$(command -v curl)" ]; then
+        rmOldFiles
+        mainCheck
 
-mainCheck() {
-    if [ -x "$(command -v git)" ]; then
-        installSecman_Tools
+        if [ -x "$(command -v secman)" ]; then
+            successInstall
+        else
+            echo "Download failed 😔"
+        fi
+
     else
-        echo "You should install git"
+        echo "You should install curl"
+        exit 0
     fi
-}
-
-if [ -x "$(command -v curl)" ]; then
-    rmOldFiles
-    mainCheck
-
-    if [ -x "$(command -v secman)" ]; then
-        successInstall
-    else
-        echo "Download failed 😔"
-    fi
-
 else
-    echo "You should install curl"
-    exit 0
+    echo "You must install wget"
 fi
