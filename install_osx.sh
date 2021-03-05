@@ -37,10 +37,6 @@ v=$(verx secman-team/secman -l)
 git clone https://github.com/secman-team/sm ~/sm
 sudo mv ~/sm /home
 
-# secman-sync shortcut
-secman_sync_shortcut=$GH_RAW_URL/secman-team/secman/HEAD/plugins/secman-sync
-sudo wget -P $smLocLD $secman_sync_shortcut
-
 smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-osx
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
@@ -61,8 +57,7 @@ installSecman_Tools() {
     sudo chmod 755 $smLocLD/secman-un
 
     # secman-sync
-    sudo wget -P $SM_DIR $sm_syUrl
-    sudo chmod 755 $SM_DIR/secman-sync
+    sudo wget -P $smLocLD $sm_syUrl
     sudo chmod 755 $smLocLD/secman-sync
 }
 
