@@ -38,7 +38,7 @@ v=$(verx secman-team/secman -l)
 git clone https://github.com/secman-team/sm ~/sm
 sudo mv ~/sm /home
 
-smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-linux
+smUrl=https://github.com/secman-team/secman/releases/download/$v/secman_linux_${v}_x64
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 
@@ -47,10 +47,11 @@ successInstall() {
 }
 
 installSecman_Tools() {
-    # secman
-    sudo wget -O $smLocLD/secman $smUrl
+    unzip $smUrl
 
-    sudo chmod 755 $smLocLD/secman
+    # secman
+    sudo mv bin/secman $smLocLD
+    sudo mv share/man/man1/secman*.1.gz /usr/share/man/man1
 
     # secman-un
     sudo wget -P $smLocLD $sm_unUrl
