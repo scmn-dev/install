@@ -37,7 +37,7 @@ v=$(verx secman-team/secman -l)
 git clone https://github.com/secman-team/sm ~/sm
 sudo mv ~/sm /home
 
-smUrl=https://github.com/secman-team/secman/releases/download/$v/secman_macos_${v}_x64
+smUrl=https://github.com/secman-team/secman/releases/download/$v/secman_macos_${v}_x64.zip
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 
