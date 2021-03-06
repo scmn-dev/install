@@ -34,7 +34,7 @@ if [ -x "$(command -v wget)" ]; then
 
     git clone https://github.com/secman-team/sm $SM_DIR
 
-    smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-win-git
+    smUrl=https://github.com/secman-team/secman/releases/download/$v/secman-win
     sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un-win
     sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 
@@ -47,7 +47,7 @@ if [ -x "$(command -v wget)" ]; then
         wget -O $smLocLD/secman $smUrl
 
         # secman-un
-        wget -P $smLocLD $sm_unUrl
+        wget -O $smLocLD/secman-un $sm_unUrl
 
         # secman-sync
         wget -P $smLocLD $sm_syUrl

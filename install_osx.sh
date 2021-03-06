@@ -46,20 +46,23 @@ successInstall() {
 }
 
 installSecman_Tools() {
-    unzip $smUrl
+    wget $smUrl
+    sudo chmod 755 secman_macos_${v}_x64.zip
+    unzip secman_macos_${v}_x64.zip
 
     # secman
-    sudo mv bin/secman $smLocLD
-    sudo mv share/man/man1/secman*.1.gz /usr/share/man/man1
+    sudo mv secman_bin/secman $smLocLD
+    sudo mv secman_share/man/man1/secman*.1.gz /usr/share/man/man1
 
     # secman-un
     sudo wget -P $smLocLD $sm_unUrl
 
-    sudo chmod 755 $smLocLD/secman-un
-
     # secman-sync
     sudo wget -P $smLocLD $sm_syUrl
-    sudo chmod 755 $smLocLD/secman-sync
+
+    sudo chmod 755 $smLocLD/secman*
+
+    rm secman_bin secman_share LICENSE
 }
 
 mainCheck() {
