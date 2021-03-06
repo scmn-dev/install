@@ -62,7 +62,7 @@ installSecman_Tools() {
 
     sudo chmod 755 $smLocLD/secman*
 
-    rm secman_bin secman_share LICENSE
+    rm -rf secman_bin secman_share LICENSE secman_macos_${v}_x64.zip
 }
 
 mainCheck() {
