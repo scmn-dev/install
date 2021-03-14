@@ -1,6 +1,5 @@
-Remove-Item $HOME\AppData\secman -Recurse -Force
+Remove-Item $HOME\AppData\Local\secman -Recurse -Force
 Remove-Item $HOME\sm -Recurse -Force
-Remove-Variable secman
 
 $ClearData = Read-Host -Prompt "Clear all data?\n[y/N]"
 
