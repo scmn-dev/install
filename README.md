@@ -11,6 +11,6 @@ _working on add `secman` to linux package managers_
 # macOS
 ❯ curl -fsSL https://raw.githubusercontent.com/secman-team/install/HEAD/install_osx.sh | bash
 
-# git bash windows
-❯ curl -fsSL https://raw.githubusercontent.com/secman-team/install/HEAD/install_win.sh | bash
+# windows (in powershell)
+❯ iwr -useb https://raw.githubusercontent.com/secman-team/install/HEAD/win/install.ps1 | iex
 ```
