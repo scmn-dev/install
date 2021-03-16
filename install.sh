@@ -7,6 +7,7 @@
 GH_RAW_URL=https://raw.githubusercontent.com
 SM_DIR=/home/sm
 smLocLD=/usr/local/bin
+UNAME=$(uname)
 
 rmOldFiles() {
     if [ -f $smLocLD/secman ]; then
@@ -26,29 +27,37 @@ echo "installing deps..."
 curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
 curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh | bash
 
-cd ~
-wget $GH_RAW_URL/secman-team/secman/HEAD/Gemfile
-sudo gem install bundler
-bundle install
-sudo rm -rf Gemfile*
+sudo gem install colorize optparse
 
 v=$(verx secman-team/secman -l)
 
-git clone https://github.com/secman-team/sm ~/sm
-sudo mv ~/sm /home
+sudo git clone https://github.com/secman-team/sm /home/sm
 
-smUrl=https://github.com/secman-team/secman/releases/download/$v/secman_macos_${v}_x64.zip
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
+releases_page=https://github.com/secman-team/secman/releases/download
 
 successInstall() {
     echo "yesss, secman was installed successfully 😎, you can type secman --help"
 }
 
 installSecman_Tools() {
-    wget $smUrl
-    sudo chmod 755 secman_macos_${v}_x64.zip
-    unzip secman_macos_${v}_x64.zip
+    if [ "$UNAME" == "Linux" ]; then
+        smUrl=$releases_page/$v/secman_deb_${v}_x64.zip
+
+        wget $smUrl
+        sudo chmod 755 secman_deb_${v}_x64.zip
+        unzip secman_deb_${v}_x64.zip
+        rm secman_deb_${v}_x64.zip
+
+    else if [ "$UNAME" == "Darwin" ]; then
+        smUrl=$releases_page/$v/secman_macos_${v}_x64.zip
+
+        wget $smUrl
+        sudo chmod 755 secman_macos_${v}_x64.zip
+        unzip secman_macos_${v}_x64.zip
+        rm secman_macos_${v}_x64.zip
+    fi
 
     # secman
     sudo mv secman_bin/secman $smLocLD
@@ -62,15 +71,14 @@ installSecman_Tools() {
 
     sudo chmod 755 $smLocLD/secman*
 
-    rm -rf secman_bin secman_share LICENSE secman_macos_${v}_x64.zip
+    rm -rf secman_bin secman_share LICENSE
 }
 
 mainCheck() {
     if [ -x "$(command -v git)" ]; then
         installSecman_Tools
     else
-        xcode-select --install
-        installSecman_Tools
+        echo "You Should Install Git"
     fi
 }
 
