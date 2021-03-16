@@ -50,7 +50,7 @@ installSecman_Tools() {
         unzip secman_deb_${v}_x64.zip
         rm secman_deb_${v}_x64.zip
 
-    else if [ "$UNAME" == "Darwin" ]; then
+    elif [ "$UNAME" == "Darwin" ]; then
         smUrl=$releases_page/$v/secman_macos_${v}_x64.zip
 
         wget $smUrl
