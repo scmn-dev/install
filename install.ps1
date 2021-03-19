@@ -36,7 +36,8 @@ Write-Host "Installing ruby deps.."  -ForegroundColor DarkYellow
 
 gem install colorize optparse
 
-Remove-Item secman_windows* sm.sh -Recurse -Force
+Remove-Item secman_windows* -Recurse -Force
+Remove-Item sm.sh
 
 if (Test-Path -path $loc) {
   Write-Host "Yessss, secman was installed successfully, run secman --help"  -ForegroundColor DarkGreen
