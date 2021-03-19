@@ -4,10 +4,6 @@ $loc = "$HOME\AppData\Local\secman"
 $smShUrl = "https://raw.githubusercontent.com/secman-team/tools/HEAD/sm.sh"
 $sm_winLoc = "$HOME\sm"
 
-if (Test-Path -path $loc) {
-  Remove-Item $loc -Recurse -Force
-}
-
 if (Test-Path -path $sm_winLoc) {
   Remove-Item $sm_winLoc -Recurse -Force
 }
