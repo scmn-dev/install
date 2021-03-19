@@ -24,7 +24,7 @@ Expand-Archive secman_windows.zip
 
 New-Item $loc
 
-Move-Item secman_windows\bin $loc
+Move-Item -Path secman_windows\bin -Destination $loc
 
 $env:Path += ";$HOME\$loc\bin"
 
@@ -32,7 +32,7 @@ git clone https://github.com/secman-team/sm-win $sm_winLoc
 
 Invoke-WebRequest $smShUrl -outfile $sm_winLoc\sm.sh
 
-Write-Host "Installing ruby deps.."  -ForegroundColor DarkYellow
+Write-Host "Installing ruby deps.." -ForegroundColor DarkYellow
 
 gem install colorize optparse
 
