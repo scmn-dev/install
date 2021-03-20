@@ -33,6 +33,8 @@ v=$(verx secman-team/secman -l)
 
 sudo git clone https://github.com/secman-team/sm /home/sm
 
+sudo chmod 755 /home/sm/sm.sh
+
 sm_unUrl=$GH_RAW_URL/secman-team/secman/HEAD/packages/secman-un
 sm_syUrl=$GH_RAW_URL/secman-team/secman/HEAD/api/sync/secman-sync
 releases_page=https://github.com/secman-team/secman/releases/download
