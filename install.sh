@@ -5,6 +5,7 @@
 # 2- check if curl command is exist
 
 GH_RAW_URL=https://raw.githubusercontent.com
+GH_RAW_URL_SMTEAM=$GH_RAW_URL/secman-team
 SM_DIR=/home/sm
 smLocLD=/usr/local/bin
 UNAME=$(uname)
@@ -24,8 +25,8 @@ rmOldFiles() {
 # install deps
 echo "installing deps..."
 
-curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
-curl -fsSL https://raw.githubusercontent.com/secman-team/verx/HEAD/install.sh | bash
+curl -fsSL $GH_RAW_URL_SMTEAM/corgit/main/setup | bash
+curl -fsSL $GH_RAW_URL_SMTEAM/verx/HEAD/install.sh | bash
 
 sudo gem install colorize optparse
 
