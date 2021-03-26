@@ -25,7 +25,7 @@ rmOldFiles() {
 echo "installing deps..."
 
 curl -fsSL https://raw.githubusercontent.com/secman-team/corgit/main/setup | bash
-curl -fsSL https://raw.githubusercontent.com/abdfnx/verx/HEAD/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/secman-team/verx/HEAD/install.sh | bash
 
 sudo gem install colorize optparse
 
