@@ -26,8 +26,6 @@ New-Item -ItemType "directory" -Path $loc
 
 Move-Item -Path secman_windows\bin -Destination $loc
 
-$env:Path += ";$HOME\$loc\bin"
-
 git clone https://github.com/secman-team/sm-win $sm_winLoc
 
 Invoke-WebRequest $smShUrl -outfile $sm_winLoc\sm.sh
@@ -45,3 +43,4 @@ if (Test-Path -path $loc) {
   Write-Host "Download failed 😔"
 }
 
+Set-Item -Path Env:Path -Value ($Env:Path + ";$HOME\$loc\bin")
