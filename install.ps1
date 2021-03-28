@@ -1,6 +1,6 @@
 # iwr -useb https://secman-team.github.io/install/install.ps1 | iex
 
-if ((Get-Command bash) && (Get-Command gem)) {
+if (Get-Command bash) {
   $loc = "$HOME\AppData\Local\secman"
   $smShUrl = "https://raw.githubusercontent.com/secman-team/tools/HEAD/sm.sh"
   $sm_winLoc = "$HOME\sm"
