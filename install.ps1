@@ -43,4 +43,4 @@ if (Test-Path -path $loc) {
   Write-Host "Download failed 😔"
 }
 
-Set-Content -Path Secman -Value ";$HOME\$loc\bin"
+Set-Item -Path Env:Path -Value ($Env:Path + ";$loc\bin")
