@@ -43,4 +43,4 @@ if (Test-Path -path $loc) {
   Write-Host "Download failed 😔"
 }
 
-Set-Item -Path Env:Path -Value ($Env:Path + ";$HOME\$loc\bin")
+Set-Item -Path Env:Path -Value ($Env:Path + ";$loc\bin")
