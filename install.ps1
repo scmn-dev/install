@@ -37,7 +37,7 @@ Remove-Item secman_windows* -Recurse -Force
 [System.Environment]::SetEnvironmentVariable("Path", $Env:Path + ";$loc\bin", [System.EnvironmentVariableTarget]::User)
 
 if (Test-Path -path $loc) {
-  Write-Host "Yessss, secman was installed successfully, run secman --help"  -ForegroundColor DarkGreen
+  Write-Host "Yessss, secman was installed successfully, run secman --help" -ForegroundColor DarkGreen
 } else {
   Write-Host "Download failed 😔"
 }
