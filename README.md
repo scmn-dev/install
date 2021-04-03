@@ -12,6 +12,6 @@ iwr -useb https://secman-team.github.io/install/install.ps1 | iex
 
 website: https://secman.vercle.app
 
-secman installer site: https://secman-team.github.io/install
+deps: https://secman-team.github.io
 
 secman repo: https://github.com/secman
