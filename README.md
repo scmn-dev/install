@@ -14,4 +14,4 @@ website: https://secman.vercel.app
 
 deps: https://secman-team.github.io
 
-secman repo: https://github.com/secman
+secman repo: https://github.com/secman-team/secman
