@@ -10,7 +10,7 @@ curl -fsSL https://secman-team.github.io/install.sh | bash
 iwr -useb https://secman-team.github.io/install.ps1 | iex
 ```
 
-website: https://secman.vercle.app
+website: https://secman.vercel.app
 
 deps: https://secman-team.github.io
 
