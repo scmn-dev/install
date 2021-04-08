@@ -4,10 +4,10 @@
 
 ```sh
 # (macOS and Linux)
-curl -fsSL https://secman-team.github.io/install/install.sh | bash
+curl -fsSL https://secman-team.github.io/install.sh | bash
 
 # (windows) in powershell
-iwr -useb https://secman-team.github.io/install/install.ps1 | iex
+iwr -useb https://secman-team.github.io/install.ps1 | iex
 ```
 
 website: https://secman.vercle.app
