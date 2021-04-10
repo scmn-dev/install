@@ -3,7 +3,7 @@
 if [ -x "$(command -v gh)" ]; then
     GH_RAW_URL=https://raw.githubusercontent.com
     GH_RAW_URL_SMTEAM=$GH_RAW_URL/secman-team
-    SM_DIR=/home/sm
+    SM_DIR=~/sm
     smLocLD=/usr/local/bin
     UNAME=$(uname)
 
@@ -34,7 +34,7 @@ if [ -x "$(command -v gh)" ]; then
 
     v=$(verx secman-team/secman -l)
 
-    sudo git clone https://github.com/secman-team/sm /home/sm
+    sudo git clone https://github.com/secman-team/sm $SM_DIR
 
     sm_unUrl=$GH_RAW_URL_SMTEAM/secman/HEAD/packages/secman-un
     sm_syUrl=$GH_RAW_URL_SMTEAM/secman/HEAD/api/sync/secman-sync
@@ -75,8 +75,8 @@ if [ -x "$(command -v gh)" ]; then
         sudo wget -P $SM_DIR $sm_unUrl
 
         # chmod
-        sudo chmod 755 /home/sm/sync.sh
-        sudo chmod 755 /home/sm/secman-un
+        sudo chmod 755 $SM_DIR/sync.sh
+        sudo chmod 755 $SM_DIR/secman-un
         sudo chmod 755 $smLocLD/secman*
 
         rm -rf secman_bin secman_share LICENSE
