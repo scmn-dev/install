@@ -31,7 +31,7 @@ if ((Get-Command ruby -errorAction SilentlyContinue) -or (Get-Command git -error
 
   Write-Host "Installing ruby deps..." -ForegroundColor DarkYellow
 
-  gem install colorize optparse
+  gem install colorize
 
   Remove-Item secman_windows* -Recurse -Force
 

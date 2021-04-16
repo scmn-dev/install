@@ -29,7 +29,7 @@ echo "${YELLOW}installing deps 📦...${ENDCOLOR}"
 curl -fsSL $GH_RAW_URL_SMTEAM/corgit/main/setup | bash
 curl -fsSL $GH_RAW_URL_SMTEAM/verx/HEAD/install.sh | bash
 
-sudo gem install colorize optparse
+sudo gem install colorize
 
 v=$(curl --silent "https://api.github.com/repos/secman-team/secman/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 
