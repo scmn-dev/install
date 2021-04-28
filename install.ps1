@@ -1,6 +1,6 @@
 # iwr -useb https://secman-team.github.io/install.ps1 | iex
 
-if ((Get-Command ruby -errorAction SilentlyContinue) -or (Get-Command git -errorAction SilentlyContinue)) {
+if ((Get-Command ruby -errorAction SilentlyContinue) -or (Get-Command git -errorAction SilentlyContinue) -or (Get-Command npm -errorAction SilentlyContinue)) {
   # get latest release
   $release_url = "https://api.github.com/repos/secman-team/secman/releases"
   $tag = (Invoke-WebRequest -Uri $release_url -UseBasicParsing | ConvertFrom-Json)[0].tag_name
@@ -37,17 +37,14 @@ if ((Get-Command ruby -errorAction SilentlyContinue) -or (Get-Command git -error
 
   [System.Environment]::SetEnvironmentVariable("Path", $Env:Path + ";$loc\bin", [System.EnvironmentVariableTarget]::User)
 
-  Write-Host "Installing @secman/sm-upg" -ForegroundColor DarkBlue
-
-  npm i -g @secman/sm-upg
-
   if (Test-Path -path $loc) {
     Write-Host "Yessss, secman was installed successfully, run secman --help" -ForegroundColor DarkGreen
   } else {
     Write-Host "Download failed 😔"
   }
 } else {
-  Write-Host "Some of these apps must be installed: git, or ruby"
+  Write-Host "Some of these apps must be installed: git, npm, or ruby"
   Write-Host "git: https://git-scm.com"
+  Write-Host "npm & nodejs: https://nodejs.org"
   Write-Host "ruby: https://rubyinstaller.org"
 }
