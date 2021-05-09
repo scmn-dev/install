@@ -1,4 +1,4 @@
-# iwr -useb https://secman-team.github.io/install.ps1 | iex
+# iwr -useb https://deps.secman.dev/install.ps1 | iex
 
 if ((Get-Command git -errorAction SilentlyContinue) -or (Get-Command npm -errorAction SilentlyContinue)) {
   # get latest release
