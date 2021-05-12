@@ -4,14 +4,14 @@
 
 ```sh
 # (macOS and Linux)
-curl -fsSL https://get.secman.dev/install.sh | bash
+curl -fsSL https://cli.secman.dev/install.sh | bash
 
 # (windows) in powershell
-iwr -useb https://get.secman.dev/install.ps1 | iex
+iwr -useb https://cli.secman.dev/install.ps1 | iex
 ```
 
-website: https://secman.dev
+website: **https://secman.dev**
 
-deps: https://get.secman.dev
+secman cli: **https://cli.secman.dev**
 
-secman repo: https://github.com/secman-team/secman
+secman repo: **https://github.com/secman-team/secman**
