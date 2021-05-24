@@ -5,7 +5,9 @@
 ```sh
 # (macOS and Linux)
 curl -fsSL https://cli.secman.dev/install.sh | bash
+```
 
+```powershell
 # (windows) in powershell
 iwr -useb https://cli.secman.dev/install.ps1 | iex
 ```
