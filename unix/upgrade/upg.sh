@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl -fsSL https://unix_upg.secman.dev | bash
+# curl -fsSL https://unix-upg.secman.dev | bash
 
 smLocLD=/usr/local/bin
 UNAME=$(uname)
