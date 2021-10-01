@@ -1,19 +1,13 @@
 # Secman installer
 
-> install `secman`
+> secman installer and upgrader
 
 ```sh
 # (macOS and Linux)
-curl -fsSL https://cli.secman.dev/install.sh | bash
+curl -fsSL https://unix.secman.dev | bash
 ```
 
 ```powershell
 # (windows) in powershell
-iwr -useb https://cli.secman.dev/install.ps1 | iex
+iwr -useb https://win.secman.dev | iex
 ```
-
-website: **https://secman.dev**
-
-secman cli: **https://cli.secman.dev**
-
-secman repo: **https://github.com/secman-team/secman**

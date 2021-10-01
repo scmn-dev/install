@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# curl -fsSL https://cli.secman.dev/unix | bash
+
 smLocLD=/usr/local/bin
 UNAME=$(uname)
 
@@ -9,16 +11,16 @@ rmOldFiles() {
     fi
 }
 
-v=$(curl --silent "https://api.github.com/repos/secman-team/secman/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+v=$(curl --silent "https://api.github.com/repos/scmn-dev/secman/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 
-releases_api_url=https://github.com/secman-team/secman/releases/download
+releases_api_url=https://github.com/scmn-dev/secman/releases/download
 
 successInstall() {
-    echo "yesss, secman was installed successfully 😎, you can type secman --help"
+    echo "🙏 Thanks for installing the Secman CLI! If this is your first time using the CLI, be sure to run `secman --help` first."
 }
 
 installSecman() {
-    echo "installing secman..."
+    echo "Installing secman version $v"
 
     if [ "$UNAME" == "Linux" ]; then
         name="secman_linux_${v}_amd64"
@@ -58,6 +60,7 @@ installSecman() {
 mainCheck() {
     if [ -x "$(command -v git)" ]; then
         installSecman
+
     else
         echo "You Need to Install Git"
     fi
@@ -70,4 +73,5 @@ if [ -x "$(command -v secman)" ]; then
     successInstall
 else
     echo "Download failed 😔"
+    echo "Please try again."
 fi
