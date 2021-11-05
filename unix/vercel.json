@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://raw.githubusercontent.com/scmn-dev/install/main/unix/install.sh",
-      "permanent": true
-    }
-  ]
-}
