@@ -4,6 +4,41 @@
       "source": "/",
       "destination": "https://raw.githubusercontent.com/scmn-dev/install/main/install.sh",
       "permanent": true
+    },
+    {
+      "source": "/darwin-x64",
+      "destination": "https://cli-files.secman.dev/darwin-x64",
+      "permanent": true
+    },
+    {
+      "source": "/linux-arm",
+      "destination": "https://cli-files.secman.dev/linux-arm",
+      "permanent": true
+    },
+    {
+      "source": "/linux-x64",
+      "destination": "https://cli-files.secman.dev/linux-x64",
+      "permanent": true
+    },
+    {
+      "source": "/version",
+      "destination": "https://cli-files.secman.dev/version",
+      "permanent": true
+    },
+    {
+      "source": "/win32-x64",
+      "destination": "https://cli-files.secman.dev/win32-x64",
+      "permanent": true
+    },
+    {
+      "source": "/win32-x86",
+      "destination": "https://cli-files.secman.dev/win32-x86",
+      "permanent": true
+    },
+    {
+      "source": "/wsl-x64",
+      "destination": "https://cli-files.secman.dev/wsl-x64",
+      "permanent": true
     }
   ]
 }
