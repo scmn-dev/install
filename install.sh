@@ -23,6 +23,7 @@ installSecman() {
 
     if [ -x "$(command -v secman)" ]; then
         secman init
+        IS_FROM_SCRIPT=true
 
     else
         echo "Secman CLI not installed. Please try again."
