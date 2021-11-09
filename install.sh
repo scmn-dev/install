@@ -23,7 +23,7 @@ installSecman() {
 
     if [ -x "$(command -v secman)" ]; then
         secman init
-        SM_PROVIDOR=script
+        export SM_PROVIDER=script
 
     else
         echo "Secman CLI not installed. Please try again."
