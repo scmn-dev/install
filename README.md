@@ -1,7 +1,13 @@
 # Secman installer
 
-> secman installer
+> install **Secman** (on macOS or Linux)
 
-```sh
-curl -fsSL https://cli.secman.dev | bash
+```bash
+curl -sL https://u.secman.dev | bash
+```
+
+> install **Secman** (on Windows)
+
+```powershell
+iwr -useb https://w.secman.dev | iex
 ```
