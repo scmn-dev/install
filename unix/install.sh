@@ -113,7 +113,7 @@ mainCheck() {
     # install secman core cli
     if [ -x "$(command -v npm)" ]; then
         echo "Installing secman core cli..."
-        npm i -g @secman/sc
+        npm install -g @secman/scc
     else
         echo "npm is not installed. Please install npm first."
     fi

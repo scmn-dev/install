@@ -36,7 +36,7 @@ Remove-Item secman_windows* -Recurse -Force
 
 if (Get-Command npm -errorAction SilentlyContinue) {
     Write-Host "Installing secman core cli..." -ForegroundColor DarkCyan
-    npm install -g @secman/sc
+    npm install -g @secman/scc
 }
 
 if (Test-Path -path $loc) {
