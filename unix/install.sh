@@ -18,7 +18,7 @@ rmOldFiles() {
     fi
 }
 
-v=$(curl --silent "https://api.github.com/repos/scmn-dev/secman/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+v=$(curl --silent "https://api.secman.dev/latest")
 
 releases_api_url=https://github.com/scmn-dev/secman/releases/download
 
