@@ -1,10 +1,10 @@
 # get latest release
-$release_url = "https://api.github.com/repos/abdfnx/secman/releases"
+$release_url = "https://api.github.com/repos/scmn-dev/secman/releases"
 $tag = (Invoke-WebRequest -Uri $release_url -UseBasicParsing | ConvertFrom-Json)[0].tag_name
 $loc = "$HOME\AppData\Local\secman"
 $url = ""
 $arch = $env:PROCESSOR_ARCHITECTURE
-$releases_api_url = "https://github.com/abdfnx/secman/releases/download/$tag/secman_windows_${tag}"
+$releases_api_url = "https://github.com/scmn-dev/secman/releases/download/$tag/secman_windows_${tag}"
 
 if ($arch -eq "AMD64") {
     $url = "${releases_api_url}_amd64.zip"
