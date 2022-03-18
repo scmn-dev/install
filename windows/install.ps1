@@ -50,6 +50,7 @@ if (Test-Path -path $loc) {
 
     Write-Host "Thanks for installing Secman! Now Refresh your powershell" -ForegroundColor DarkGreen
     Write-Host "If this is your first time using the CLI, be sure to run 'secman --help' first." -ForegroundColor DarkGreen
+    secman init
 } else {
     Write-Host "Download failed" -ForegroundColor Red
     Write-Host "Please try again later" -ForegroundColor Red

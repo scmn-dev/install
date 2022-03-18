@@ -124,6 +124,7 @@ mainCheck
 
 if [ -x "$(command -v secman)" ]; then
     successInstall
+    secman init
 else
     echo "Download failed 😔"
     echo "Please try again."
